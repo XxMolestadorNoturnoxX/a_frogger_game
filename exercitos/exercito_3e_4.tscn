@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://djoalx7lt7cr5"]
+
+[ext_resource type="Script" uid="uid://dw3r68w0pk1x0" path="res://exercitos/exercito_3e4.gd" id="1_a36i3"]
+[ext_resource type="Texture2D" uid="uid://dx0whdwbkliup" path="res://personagens/nuvem.jpeg" id="2_a22kd"]
+
+[sub_resource type="Gradient" id="Gradient_131p3"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.02563247, 0.07211264, 0.16828784, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6x50h"]
+gradient = SubResource("Gradient_131p3")
+width = 486
+height = 164
+
+[node name="exercito_3e4" type="Control" unique_id=924916986]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_a36i3")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=817506157]
+position = Vector2(576, 466)
+scale = Vector2(1.0915442, 1.4878056)
+texture = SubResource("GradientTexture2D_6x50h")
+
+[node name="nuvem" type="Sprite2D" parent="." unique_id=1384890932]
+position = Vector2(819, 384)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_a22kd")

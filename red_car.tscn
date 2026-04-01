@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://xsgyytbpv2um"]
+
+[ext_resource type="PackedScene" uid="uid://d17nmfwhunjcs" path="res://base_car.tscn" id="1_mqnwv"]
+[ext_resource type="Texture2D" uid="uid://dp515hw7842nm" path="res://frogger/graphics/cars/redcar.png" id="2_306r1"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_306r1"]
+radius = 80.0
+height = 279.0
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_306r1"]
+radius = 80.0
+height = 279.0
+rings = 5
+
+[node name="red_car" unique_id=141913365 instance=ExtResource("1_mqnwv")]
+color = "red"
+
+[node name="Sprite2D" parent="." index="0" unique_id=267016933]
+texture = ExtResource("2_306r1")
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=432661975]
+z_index = 1
+position = Vector2(0, 50)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_306r1")
+
+[node name="colisao" parent="." index="2" unique_id=1849013438 groups=["hitbox"]]
+visible = false
+modulate = Color(0, 0.6, 0.7019608, 0.41960785)
+position = Vector2(0, 51)
+rotation = 1.5707964
+mesh = SubResource("CapsuleMesh_306r1")

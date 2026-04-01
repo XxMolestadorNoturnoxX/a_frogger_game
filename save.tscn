@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://du315lbbywtk4"]
+
+[ext_resource type="Script" uid="uid://fswlcwl5qxmk" path="res://save.gd" id="1_tknle"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qgelp"]
+size = Vector2(1760, 25)
+
+[node name="save" type="Area2D" unique_id=175304080]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_tknle")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2005665455]
+position = Vector2(880, 3.5)
+shape = SubResource("RectangleShape2D_qgelp")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

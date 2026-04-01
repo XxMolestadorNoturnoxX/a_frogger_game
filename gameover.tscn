@@ -1,0 +1,149 @@
+[gd_scene format=3 uid="uid://vdj1rl8e0je6"]
+
+[ext_resource type="Script" uid="uid://d3wju17qaajvn" path="res://gameover.gd" id="1_eeur3"]
+[ext_resource type="LabelSettings" uid="uid://ce0b3li4303vw" path="res://testo.tres" id="2_kctv7"]
+[ext_resource type="Texture2D" uid="uid://cpnooo0qqnjjx" path="res://personagens/restart.png" id="3_kctv7"]
+[ext_resource type="Texture2D" uid="uid://dq53h4umeupsg" path="res://personagens/rage.png" id="4_2nw6q"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2nw6q"]
+bg_color = Color(0.99999994, 0.7719141, 0.7879505, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_af4fq"]
+bg_color = Color(0.9993115, 0.6021314, 0.6436296, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g1o2j"]
+bg_color = Color(0.99607843, 0.21960784, 0.40392157, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="Theme" id="Theme_pn7gr"]
+/styles/back = null
+Button/colors/icon_normal_color = Color(1, 1, 1, 1)
+Button/styles/hover = SubResource("StyleBoxFlat_2nw6q")
+Button/styles/normal = SubResource("StyleBoxFlat_af4fq")
+Button/styles/pressed = SubResource("StyleBoxFlat_g1o2j")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eeur3"]
+bg_color = Color(0.82521343, 3.3210217e-06, 0.36684838, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.105882354, 0, 0.023529412, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w3x71"]
+bg_color = Color(0.5114195, 0, 0.21430495, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.10758882, 1.8049032e-08, 0.024856364, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kctv7"]
+bg_color = Color(0.31660467, 9.62615e-08, 0.12309403, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.105882354, 0, 0.023529412, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="Theme" id="Theme_eeur3"]
+/styles/back = null
+Button/colors/icon_normal_color = Color(1, 1, 1, 1)
+Button/styles/hover = SubResource("StyleBoxFlat_eeur3")
+Button/styles/normal = SubResource("StyleBoxFlat_w3x71")
+Button/styles/pressed = SubResource("StyleBoxFlat_kctv7")
+
+[node name="gameover" type="Control" unique_id=1788567194]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_eeur3")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1963311477]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.003
+anchor_bottom = 1.0
+offset_right = -0.4560547
+offset_bottom = 0.024047852
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="dead" type="Label" parent="VBoxContainer" unique_id=2064339496]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+text = "dead
+"
+label_settings = ExtResource("2_kctv7")
+visible_characters = 4
+visible_ratio = 0.999
+
+[node name="restart" type="Button" parent="VBoxContainer" unique_id=2037793424]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+theme = SubResource("Theme_pn7gr")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.77254903, 0.7882353, 1)
+theme_override_colors/font_hover_color = Color(0.99607843, 0.21960784, 0.40392157, 1)
+theme_override_font_sizes/font_size = 32
+text = "restart in last save"
+icon = ExtResource("3_kctv7")
+autowrap_trim_flags = 0
+
+[node name="ragequit" type="Button" parent="VBoxContainer" unique_id=280658804]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+theme = SubResource("Theme_eeur3")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.99607843, 0.21960784, 0.40392157, 1)
+theme_override_font_sizes/font_size = 32
+text = "rage quit"
+icon = ExtResource("4_2nw6q")
+autowrap_trim_flags = 0
+
+[connection signal="button_up" from="VBoxContainer/restart" to="." method="_on_restart_button_up"]
+[connection signal="button_up" from="VBoxContainer/ragequit" to="." method="_on_ragequit_button_up"]

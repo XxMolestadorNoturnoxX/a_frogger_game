@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://d17nmfwhunjcs"]
+
+[ext_resource type="Script" uid="uid://befdu1pe2t501" path="res://base_car.gd" id="1_f5gu2"]
+
+[node name="base_car" type="Area2D" unique_id=141913365 groups=["cars"]]
+z_index = 1
+collision_layer = 4
+collision_mask = 514
+script = ExtResource("1_f5gu2")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=267016933]
+scale = Vector2(10, 10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=432661975]
+position = Vector2(1.5, 30)
+
+[node name="colisao" type="MeshInstance2D" parent="." unique_id=1849013438]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://5l85fo2ghvtb"]
+
+[ext_resource type="Script" uid="uid://7tiwp44gog60" path="res://exercitos/abomination.gd" id="1_ic0i4"]
+[ext_resource type="Texture2D" uid="uid://c8fxakndo8p3j" path="res://personagens/gostoso.jpeg" id="2_5oncy"]
+[ext_resource type="Texture2D" uid="uid://bira12es8rcug" path="res://personagens/putrefaça.png" id="2_j257o"]
+[ext_resource type="Texture2D" uid="uid://xu8m7td6f4em" path="res://personagens/gostosa.jpeg" id="3_m3tkh"]
+[ext_resource type="Texture2D" uid="uid://bk5i7akd0rspk" path="res://personagens/mikael.jpeg" id="4_h3gfq"]
+[ext_resource type="Texture2D" uid="uid://jgyvxg68xayu" path="res://personagens/guilherme.jpeg" id="6_dkhp1"]
+[ext_resource type="Texture2D" uid="uid://d3j0arfe33thu" path="res://personagens/floricio.jpeg" id="6_j257o"]
+[ext_resource type="PackedScene" uid="uid://b1gpl0md03ik1" path="res://rhuan.tscn" id="8_lqoik"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ic0i4"]
+radius = 56.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_lqoik"]
+radius = 56.0
+height = 112.0
+rings = 11
+
+[node name="ABOMINATION" type="CharacterBody2D" unique_id=1894100978]
+scale = Vector2(0.25, 0.25)
+collision_layer = 2
+collision_mask = 269
+script = ExtResource("1_ic0i4")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1301394919]
+position = Vector2(0, 9.536743e-07)
+scale = Vector2(0.42, 0.46)
+texture = ExtResource("2_j257o")
+
+[node name="Gostoso" type="Sprite2D" parent="Sprite2D" unique_id=347727392]
+position = Vector2(530, 0)
+rotation = 1.5707964
+scale = Vector2(0.15771429, 0.345)
+texture = ExtResource("2_5oncy")
+
+[node name="Gostosa" type="Sprite2D" parent="Sprite2D" unique_id=126099458]
+position = Vector2(-530.00006, -2.179827e-06)
+rotation = -1.5707964
+scale = Vector2(0.15771429, 0.345)
+texture = ExtResource("3_m3tkh")
+
+[node name="Mikael" type="Sprite2D" parent="Sprite2D" unique_id=983417515]
+position = Vector2(6.9, -381)
+scale = Vector2(0.1725, 0.15771429)
+texture = ExtResource("4_h3gfq")
+
+[node name="floricio" type="Sprite2D" parent="Sprite2D" unique_id=461722224]
+position = Vector2(177, 495)
+scale = Vector2(0.1725, 0.48457143)
+texture = ExtResource("6_j257o")
+
+[node name="Thiago2" type="Sprite2D" parent="Sprite2D" unique_id=301674532]
+position = Vector2(-177, 495)
+scale = Vector2(0.172, 0.485)
+texture = ExtResource("6_j257o")
+
+[node name="Guilherme" type="Sprite2D" parent="Sprite2D" unique_id=527595712]
+position = Vector2(1.725, 290.19434)
+scale = Vector2(0.0345, 0.04731429)
+texture = ExtResource("6_dkhp1")
+
+[node name="Camera" type="Camera2D" parent="." unique_id=968622509]
+offset = Vector2(0, -169)
+zoom = Vector2(0.69, 0.69)
+process_callback = 0
+position_smoothing_enabled = true
+position_smoothing_speed = 25.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1240712702]
+shape = SubResource("CircleShape2D_ic0i4")
+
+[node name="eixo" type="Node2D" parent="." unique_id=425770196]
+visible = false
+
+[node name="Rhuan" parent="eixo" unique_id=1546454927 instance=ExtResource("8_lqoik")]
+position = Vector2(0, -384.00003)
+scale = Vector2(3, 3)
+
+[node name="cudown" type="Timer" parent="." unique_id=1938977383]
+wait_time = 0.69
+one_shot = true
+
+[node name="colisao" type="MeshInstance2D" parent="." unique_id=281482045 groups=["hitbox"]]
+visible = false
+modulate = Color(0.99607843, 0.21960784, 0.40392157, 0.45882353)
+mesh = SubResource("SphereMesh_lqoik")
+
+[connection signal="area_entered" from="eixo/Rhuan" to="." method="_on_rhuan_area_entered"]
+[connection signal="timeout" from="cudown" to="." method="_on_cudown_timeout"]

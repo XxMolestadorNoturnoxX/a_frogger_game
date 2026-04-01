@@ -1,0 +1,180 @@
+[gd_scene format=3 uid="uid://irbsgv1ciwo2"]
+
+[ext_resource type="PackedScene" uid="uid://djoalx7lt7cr5" path="res://exercitos/exercito_3e_4.tscn" id="1_7l6e5"]
+[ext_resource type="Script" uid="uid://byk5a3y41ii0n" path="res://exercitos/menu.gd" id="1_bu2jj"]
+[ext_resource type="LabelSettings" uid="uid://ce0b3li4303vw" path="res://testo.tres" id="2_lgggf"]
+[ext_resource type="Texture2D" uid="uid://buk7dmem0afrq" path="res://personagens/medo.png" id="3_lgggf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iy247"]
+bg_color = Color(0, 0, 1, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lrkqp"]
+bg_color = Color(0, 0, 0.57254905, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4rvjp"]
+bg_color = Color(0.101960786, 0, 0.34509805, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bu2jj"]
+bg_color = Color(1.8049032e-08, 0.10027798, 0.12168635, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lgggf"]
+bg_color = Color(0, 0.17254902, 0.20392157, 1)
+
+[sub_resource type="Theme" id="Theme_lgggf"]
+Button/colors/font_color = Color(0.72156864, 0, 0, 1)
+Button/colors/font_hover_color = Color(0.79607844, 0, 0, 1)
+Button/colors/font_pressed_color = Color(1, 0, 0, 1)
+Button/font_sizes/font_size = 32
+Button/styles/hover = SubResource("StyleBoxFlat_iy247")
+Button/styles/normal = SubResource("StyleBoxFlat_lrkqp")
+Button/styles/pressed = SubResource("StyleBoxFlat_4rvjp")
+Panel/styles/panel = SubResource("StyleBoxFlat_bu2jj")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_lgggf")
+
+[node name="Menu" type="Control" unique_id=1996475730]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bu2jj")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=425777152]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_lgggf")
+
+[node name="exercito_3e4" parent="PanelContainer" unique_id=1693671725 instance=ExtResource("1_7l6e5")]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=1607350662]
+layout_mode = 2
+
+[node name="menu" type="Label" parent="PanelContainer/VBoxContainer" unique_id=572695617]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+text = "menu
+"
+label_settings = ExtResource("2_lgggf")
+visible_characters = 4
+visible_ratio = 0.999
+
+[node name="resume" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1388271782]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+size_flags_stretch_ratio = 2.5
+text = "Resume."
+icon = ExtResource("3_lgggf")
+autowrap_trim_flags = 0
+
+[node name="Control" type="Control" parent="PanelContainer" unique_id=775038183]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Panel" type="Panel" parent="PanelContainer/Control" unique_id=1505182987]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.73300004
+anchor_top = 0.003
+anchor_right = 1.0
+anchor_bottom = 0.505
+offset_left = -0.41601563
+offset_top = 0.055999994
+offset_bottom = -0.23999023
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/Control" unique_id=884377823]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.76
+anchor_top = 0.03
+anchor_right = 0.976
+anchor_bottom = 0.47
+offset_left = -3.7440796
+offset_bottom = 3.0
+metadata/_edit_use_anchors_ = true
+
+[node name="max_fps" type="Label" parent="PanelContainer/Control/VBoxContainer2" unique_id=194917402]
+layout_mode = 2
+text = "max Frames Per Seconds"
+
+[node name="fps_picker" type="OptionButton" parent="PanelContainer/Control/VBoxContainer2" unique_id=2131029971]
+layout_mode = 2
+selected = 4
+item_count = 6
+popup/item_0/text = "5 fps"
+popup/item_0/id = 0
+popup/item_1/text = "10 fps"
+popup/item_1/id = 1
+popup/item_2/text = "15 fps"
+popup/item_2/id = 2
+popup/item_3/text = "30 fps"
+popup/item_3/id = 3
+popup/item_4/text = "60 fps"
+popup/item_4/id = 4
+popup/item_5/text = "120 fps"
+popup/item_5/id = 5
+
+[node name="margin2" type="Control" parent="PanelContainer/Control/VBoxContainer2" unique_id=1164051150]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="volume" type="Label" parent="PanelContainer/Control/VBoxContainer2" unique_id=1346617077]
+layout_mode = 2
+text = "Music Volume:"
+
+[node name="slider" type="HSlider" parent="PanelContainer/Control/VBoxContainer2" unique_id=11321181]
+layout_mode = 2
+value = 44.0
+ticks_on_borders = true
+
+[node name="CheckButton" type="CheckButton" parent="PanelContainer/Control/VBoxContainer2" unique_id=1923922870]
+layout_mode = 2
+text = "show hitboxes"
+
+[connection signal="button_up" from="PanelContainer/VBoxContainer/resume" to="." method="_on_resume_button_up"]
+[connection signal="item_selected" from="PanelContainer/Control/VBoxContainer2/fps_picker" to="." method="_on_fps_picker_item_selected"]
+[connection signal="toggled" from="PanelContainer/Control/VBoxContainer2/CheckButton" to="." method="_on_check_button_toggled"]

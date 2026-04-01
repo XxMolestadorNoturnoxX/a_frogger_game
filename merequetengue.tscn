@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://gbj2i651ma3t"]
+
+[ext_resource type="Script" uid="uid://dpgasbpk10jhq" path="res://merequetengue.gd" id="1_ii8ce"]
+[ext_resource type="Texture2D" uid="uid://bgpr5gmj6p63o" path="res://personagens/merequetengue.png" id="2_ii8ce"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nkark"]
+size = Vector2(1760, 320)
+
+[node name="merequetengue" type="Area2D" unique_id=1267987996]
+collision_layer = 16
+collision_mask = 288
+script = ExtResource("1_ii8ce")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=692128048]
+modulate = Color(1, 1, 1, 0.1254902)
+position = Vector2(880.00006, 158)
+scale = Vector2(3.1040566, 0.44507042)
+texture = ExtResource("2_ii8ce")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=275981894]
+position = Vector2(880, 160)
+shape = SubResource("RectangleShape2D_nkark")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

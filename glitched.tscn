@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://cxmeglc1unh2l"]
+
+[ext_resource type="PackedScene" uid="uid://d17nmfwhunjcs" path="res://base_car.tscn" id="1_yxc5a"]
+[ext_resource type="Texture2D" uid="uid://b3nu4iwmos3mw" path="res://frogger/graphics/cars/bugado.png" id="2_20j27"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yxc5a"]
+radius = 70.0
+height = 219.0
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_yxc5a"]
+radius = 70.0
+height = 219.0
+
+[node name="glitched" unique_id=141913365 instance=ExtResource("1_yxc5a")]
+color = "bug"
+
+[node name="Sprite2D" parent="." index="0" unique_id=267016933]
+texture = ExtResource("2_20j27")
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=432661975]
+position = Vector2(0, 30)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_yxc5a")
+debug_color = Color(0, 0.6, 0.7019608, 0.41960785)
+
+[node name="colisao" parent="." index="2" unique_id=1849013438]
+visible = false
+modulate = Color(0, 0.6, 0.7019608, 0.41960785)
+position = Vector2(0, 30)
+rotation = 1.5707964
+mesh = SubResource("CapsuleMesh_yxc5a")

@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://h67sivbtg5xg"]
+
+[ext_resource type="Script" uid="uid://5sjbxqinirl5" path="res://orange_car.gd" id="1_qajs3"]
+[ext_resource type="Texture2D" uid="uid://ebpdcxtotl6c" path="res://frogger/graphics/cars/orange.png" id="2_tas1w"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_aoevm"]
+radius = 75.0
+height = 220.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gnurk"]
+radius = 648.0
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_qajs3"]
+radius = 75.0
+height = 220.0
+rings = 5
+
+[sub_resource type="SphereMesh" id="SphereMesh_qajs3"]
+radius = 648.0
+height = 1298.0
+
+[node name="orange_car" type="Area2D" unique_id=1562776824 groups=["cars"]]
+z_index = 3
+z_as_relative = false
+collision_layer = 256
+collision_mask = 18
+script = ExtResource("1_qajs3")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=412381922]
+scale = Vector2(10, 10)
+texture = ExtResource("2_tas1w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=849399439]
+position = Vector2(0, 25.5)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_aoevm")
+
+[node name="notice_area" type="Area2D" parent="." unique_id=1096507706]
+collision_layer = 256
+collision_mask = 530
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="notice_area" unique_id=1267761255]
+shape = SubResource("CircleShape2D_gnurk")
+
+[node name="colisao" type="MeshInstance2D" parent="." unique_id=1565605265 groups=["hitbox"]]
+visible = false
+modulate = Color(0.7882353, 0.4509804, 0, 0.41960785)
+position = Vector2(0, 25.5)
+rotation = 1.5707964
+mesh = SubResource("CapsuleMesh_qajs3")
+
+[node name="colisao1" type="MeshInstance2D" parent="." unique_id=123311014 groups=["hitbox"]]
+visible = false
+modulate = Color(0.7607843, 0.4509804, 0, 0.07058824)
+mesh = SubResource("SphereMesh_qajs3")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="notice_area" to="." method="_on_notice_area_body_entered"]

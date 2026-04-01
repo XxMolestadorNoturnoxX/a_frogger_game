@@ -1,0 +1,10 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://ce0b3li4303vw"]
+
+[ext_resource type="FontFile" uid="uid://hqpa84d2dqvp" path="res://frogger/fonts/Better VCR 9.0.1.ttf" id="1_h0lln"]
+
+[resource]
+font = ExtResource("1_h0lln")
+font_size = 128
+font_color = Color(0.99607843, 0.21960784, 0.40392157, 1)
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)

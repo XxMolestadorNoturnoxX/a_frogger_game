@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://vdj1rl8e0je6"]
+
+[ext_resource type="Script" uid="uid://d3wju17qaajvn" path="res://gameover.gd" id="1_eeur3"]
+[ext_resource type="FontFile" uid="uid://hqpa84d2dqvp" path="res://frogger/fonts/Better VCR 9.0.1.ttf" id="1_tpdqf"]
+[ext_resource type="Texture2D" uid="uid://drg4tdqpvi2hj" path="res://personagens/fabicinho.jpg" id="2_eeur3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_kctv7"]
+font = ExtResource("1_tpdqf")
+font_size = 128
+font_color = Color(0.99607843, 0.21960784, 0.40392157, 1)
+
+[sub_resource type="Theme" id="Theme_eeur3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eeur3"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kctv7"]
+bg_color = Color(0.4117647, 0.4117647, 0.4117647, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2nw6q"]
+
+[node name="gameover" type="Control" unique_id=1788567194]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_eeur3")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1129780832]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="dead" type="Label" parent="VBoxContainer" unique_id=2064339496]
+layout_mode = 2
+text = "dead
+"
+label_settings = SubResource("LabelSettings_kctv7")
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=2037793424]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = SubResource("Theme_eeur3")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.99607843, 0.21960784, 0.40392157, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_eeur3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_kctv7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2nw6q")
+text = "restart in last save"
+icon = ExtResource("2_eeur3")
+flat = true
+autowrap_trim_flags = 0
+
+[connection signal="button_up" from="VBoxContainer/Button" to="." method="_on_button_button_up"]

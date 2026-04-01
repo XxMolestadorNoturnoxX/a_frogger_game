@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://b1gpl0md03ik1"]
+
+[ext_resource type="Texture2D" uid="uid://dc861itoqlqab" path="res://personagens/rhuanos.webp" id="1_1nydy"]
+[ext_resource type="Script" uid="uid://ba3r208762ukp" path="res://rhuan.gd" id="1_dgwu3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dgwu3"]
+size = Vector2(13.5, 37)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cmjgo"]
+size = Vector2(170, 79)
+
+[node name="Rhuan" type="Area2D" unique_id=1546454927]
+collision_layer = 128
+collision_mask = 64
+script = ExtResource("1_dgwu3")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=452245106]
+position = Vector2(-0.0603095, -2.5213573)
+rotation = -1.5707964
+scale = Vector2(0.00905744, 0.04451535)
+texture = ExtResource("1_1nydy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1559656039]
+position = Vector2(-9.8350625e-08, -2.25)
+rotation = -1.5707964
+shape = SubResource("RectangleShape2D_dgwu3")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1702553884]
+position = Vector2(-11.5, -0.5)
+collision_layer = 128
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=103762288]
+position = Vector2(8, 0.5)
+shape = SubResource("RectangleShape2D_cmjgo")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

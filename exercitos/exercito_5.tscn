@@ -1,0 +1,100 @@
+[gd_scene load_steps=4 format=3 uid="uid://csy263jymn0rw"]
+
+[ext_resource type="Script" uid="uid://t4tw3mk25rwk" path="res://exercitos/exercito_5.gd" id="1_1l5ri"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1l5ri"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_uersi"]
+font_size = 32
+font_color = Color(1, 0, 0, 1)
+
+[node name="exercito5" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1l5ri")
+
+[node name="Text" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Result:"
+label_settings = SubResource("LabelSettings_1l5ri")
+
+[node name="Result" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.105
+anchor_right = 0.5
+anchor_bottom = 0.105
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+label_settings = SubResource("LabelSettings_uersi")
+
+[node name="number1" type="TextEdit" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.15
+anchor_top = 0.4
+anchor_right = 0.3
+anchor_bottom = 0.45
+offset_right = 8.0
+offset_bottom = 8.0
+placeholder_text = "        first number"
+context_menu_enabled = false
+emoji_menu_enabled = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+middle_mouse_paste_enabled = false
+empty_selection_clipboard_enabled = false
+
+[node name="number2" type="TextEdit" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.7
+anchor_top = 0.4
+anchor_right = 0.85
+anchor_bottom = 0.45
+offset_right = 8.0
+offset_bottom = 8.0
+placeholder_text = "     second number"
+
+[node name="operation" type="TextEdit" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.425
+anchor_top = 0.4
+anchor_right = 0.575
+anchor_bottom = 0.45
+offset_right = 8.0
+offset_bottom = 8.0
+placeholder_text = "          operation"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_top = 0.5
+anchor_right = 0.6
+anchor_bottom = 0.6
+offset_top = -4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "click here once done"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
