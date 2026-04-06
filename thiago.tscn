@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://855g2xm6liq5"]
+
+[ext_resource type="Texture2D" uid="uid://brgon1wxqo1ta" path="res://personagens/thiago.png" id="1_ijsho"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k1yf4"]
+size = Vector2(896, 1528)
+
+[node name="Thiago" type="StaticBody2D" unique_id=77956690]
+collision_mask = 1026
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1033031123]
+texture = ExtResource("1_ijsho")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=604206728]
+shape = SubResource("RectangleShape2D_k1yf4")

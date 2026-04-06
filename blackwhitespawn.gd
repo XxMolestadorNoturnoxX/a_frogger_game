@@ -12,21 +12,10 @@ var changed_to_white: bool = false
 var changed_to_black: bool = false
 @export var time: float
 var t: float = 0.0
-var white_time: float
 @export var index: int
-var woke_up: bool = false
-var awake: bool = false
-var original_time: float
-
-func _ready() -> void:
-	white_time = time / 3
-	original_time = time
+@export var direction: String
 
 func _process(delta: float) -> void:
-	if woke_up == false:
-		woke_up = true
-		awake = true
-		
 	if changed_to_white:
 		time = time / 3
 		t = t / 3
@@ -39,5 +28,5 @@ func _process(delta: float) -> void:
 		
 	t += delta
 	if t >= time:
-		blwh_spawn.emit(self, index)
+		blwh_spawn.emit(self, index, direction)
 		t -= time

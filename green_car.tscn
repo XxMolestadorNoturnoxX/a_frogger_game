@@ -4,11 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://dhkwyus3xxfar" path="res://frogger/graphics/cars/greencar.png" id="2_t6xdb"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t6xdb"]
-radius = 70.0
+radius = 80.0
 height = 262.0
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_t6xdb"]
-radius = 70.0
+radius = 80.0
 height = 262.0
 rings = 5
 
@@ -19,13 +19,13 @@ color = "green"
 texture = ExtResource("2_t6xdb")
 
 [node name="CollisionShape2D" parent="." index="1" unique_id=432661975]
-position = Vector2(-10, 50.5)
+position = Vector2(-10, 40)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_t6xdb")
 
 [node name="colisao" parent="." index="2" unique_id=1849013438]
 visible = false
 modulate = Color(0, 0.6, 0.7019608, 0.41960785)
-position = Vector2(-10, 50.5)
+position = Vector2(-10, 40)
 rotation = 1.5707964
 mesh = SubResource("CapsuleMesh_t6xdb")

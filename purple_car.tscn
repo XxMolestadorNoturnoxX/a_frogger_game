@@ -4,11 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://4hnktcoylj72" path="res://frogger/graphics/cars/purplecar.png" id="2_o2qnx"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o2qnx"]
-radius = 70.0
+radius = 80.0
 height = 230.0
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_o2qnx"]
-radius = 70.0
+radius = 80.0
 height = 230.0
 rings = 5
 

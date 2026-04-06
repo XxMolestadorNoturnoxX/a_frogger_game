@@ -4,7 +4,7 @@ extends Area2D
 @export var speed = 269
 var black = preload("res://frogger/graphics/cars/black.png")
 var white = preload("res://frogger/graphics/cars/white.png")
-var direction = "left"
+var direction: String
 var showing: bool = false
 var showing_hitbox: bool = false
 signal game_over
@@ -20,8 +20,6 @@ func _ready() -> void:
 		direction = "down"
 	if color == "blackwhite":
 		speed = 333
-	if position.x <= 0:
-		direction = "right"
 	if direction == "left":
 		self.scale.x = -1
 	await get_tree().create_timer(1).timeout

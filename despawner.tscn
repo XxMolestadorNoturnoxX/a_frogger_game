@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://3foqk28g0f0l"]
+
+[ext_resource type="Script" uid="uid://qy8p8pkf5l1a" path="res://despawner.gd" id="1_odym4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h10lb"]
+size = Vector2(258, 156)
+
+[node name="despawner" type="Area2D" unique_id=1634916928]
+collision_layer = 512
+collision_mask = 1380
+script = ExtResource("1_odym4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1503356266]
+shape = SubResource("RectangleShape2D_h10lb")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

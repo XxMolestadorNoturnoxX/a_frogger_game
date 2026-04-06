@@ -43,4 +43,19 @@ func _on_body_entered(_body: Node2D) -> void:
 			spawner.process_mode = Node.PROCESS_MODE_INHERIT
 		for spawner in get_tree().get_nodes_in_group("area7"):
 			spawner.process_mode = Node.PROCESS_MODE_DISABLED
+	if trigger == 9:
+		for spawner in get_tree().get_nodes_in_group("area11"):
+			spawner.process_mode = Node.PROCESS_MODE_INHERIT
+		for spawner in get_tree().get_nodes_in_group("area8"):
+			spawner.process_mode = Node.PROCESS_MODE_DISABLED
+	if trigger == 10:
+		for spawner in get_tree().get_nodes_in_group("area12"):
+			spawner.process_mode = Node.PROCESS_MODE_INHERIT
+		for spawner in get_tree().get_nodes_in_group("area9"):
+			spawner.process_mode = Node.PROCESS_MODE_DISABLED
+	if trigger == 11:
+		for spawner in get_tree().get_nodes_in_group("area13"):
+			spawner.process_mode = Node.PROCESS_MODE_INHERIT
+		for spawner in get_tree().get_nodes_in_group("area10"):
+			spawner.process_mode = Node.PROCESS_MODE_DISABLED
 	queue_free()

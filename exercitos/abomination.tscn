@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bk5i7akd0rspk" path="res://personagens/mikael.jpeg" id="4_h3gfq"]
 [ext_resource type="Texture2D" uid="uid://jgyvxg68xayu" path="res://personagens/guilherme.jpeg" id="6_dkhp1"]
 [ext_resource type="Texture2D" uid="uid://d3j0arfe33thu" path="res://personagens/floricio.jpeg" id="6_j257o"]
-[ext_resource type="PackedScene" uid="uid://b1gpl0md03ik1" path="res://rhuan.tscn" id="8_lqoik"]
+[ext_resource type="Texture2D" uid="uid://bj37de8t8m7gf" path="res://frogger/graphics/arma-removebg-preview.png" id="8_lqoik"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ic0i4"]
 radius = 56.0
@@ -73,9 +73,14 @@ shape = SubResource("CircleShape2D_ic0i4")
 [node name="eixo" type="Node2D" parent="." unique_id=425770196]
 visible = false
 
-[node name="Rhuan" parent="eixo" unique_id=1546454927 instance=ExtResource("8_lqoik")]
-position = Vector2(0, -384.00003)
-scale = Vector2(3, 3)
+[node name="Sprite2D" type="Sprite2D" parent="eixo" unique_id=531095479]
+position = Vector2(411.99997, -60.00003)
+rotation = 3.1415927
+scale = Vector2(0.8, -0.8)
+texture = ExtResource("8_lqoik")
+
+[node name="spawner" type="Marker2D" parent="eixo" unique_id=1125807608]
+position = Vector2(572, -128)
 
 [node name="cudown" type="Timer" parent="." unique_id=1938977383]
 wait_time = 0.69
@@ -86,5 +91,4 @@ visible = false
 modulate = Color(0.99607843, 0.21960784, 0.40392157, 0.45882353)
 mesh = SubResource("SphereMesh_lqoik")
 
-[connection signal="area_entered" from="eixo/Rhuan" to="." method="_on_rhuan_area_entered"]
 [connection signal="timeout" from="cudown" to="." method="_on_cudown_timeout"]

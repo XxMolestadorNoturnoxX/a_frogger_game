@@ -11,6 +11,7 @@ var onibus = preload("res://onibus.tscn")
 var glitched_car = preload("res://glitched.tscn")
 var orange_car = preload("res://orange_car.tscn")
 var blackwhite = preload("res://blackwhite.tscn")
+var tiro = preload("res://bala.tscn")
 var is_white: bool = false
 var is_black: bool = true
 var game = preload("res://gameover.tscn")
@@ -74,46 +75,51 @@ func restart():
 		if ocar.following == true:
 			ocar.queue_free()
 
-func red_spawn(marker, index) -> void:
+func red_spawn(marker, index, direction) -> void:
 	var marker_pos = marker.position
 	var rcar = red_car.instantiate()
 	rcar.position = marker_pos
+	rcar.direction = direction
 	$cars.add_child(rcar)
 	rcar.z_index = 1 + index
 
 
-func green_spawn(marker, index) -> void:
+func green_spawn(marker, index, direction) -> void:
 	var marker_pos = marker.position
 	var grcar = green_car.instantiate()
 	grcar.position = marker_pos
+	grcar.direction = direction
 	$cars.add_child(grcar)
 	grcar.z_index = 1 + index
 
 
-func yellow_spawn(marker, index) -> void:
+func yellow_spawn(marker, index, direction) -> void:
 	var marker_pos = marker.position
 	var ycar = yellow_car.instantiate()
 	ycar.position = marker_pos
+	ycar.direction = direction
 	$cars.add_child(ycar)
 	ycar.z_index = 1 + index
 
 
-func purple_spawn(marker, index) -> void:
-		var marker_pos = marker.position
-		var pucar = purple_car.instantiate()
-		pucar.position = marker_pos
-		$cars.add_child(pucar)
-		pucar.z_index = 1 + index
+func purple_spawn(marker, index, direction) -> void:
+	var marker_pos = marker.position
+	var pucar = purple_car.instantiate()
+	pucar.position = marker_pos
+	pucar.direction = direction
+	$cars.add_child(pucar)
+	pucar.z_index = 1 + index
 
 #vc saiu do apartamento e eu meio que queria uma prank pra fazer e eu nunca sei oq fazer, CUUCUCUCUCUCUCUCUCUCUUCCCUC
 #então ao invés de baixar imagens sugestivas de furries gays numa pasta secreta pra você CUCCUCUCUUUCUUCCCCUC
 #achar no seu pc depois, eu decidi vandalizar seu código do mesmo jeito que eu fiz da outra CCCICUCOIUCOIUOCIUOICUUCIUCCIOCUIOCUICCadoraodoaroadoroaord
 #fez, pela referência. CUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU
 
-func pink_spawn(marker, index) -> void:
+func pink_spawn(marker, index, direction) -> void:
 	var marker_pos = marker.position
 	var picar = pink_car.instantiate()
 	picar.position = marker_pos
+	picar.direction = direction
 	$cars.add_child(picar)
 	picar.z_index = 1 + index
 
@@ -126,43 +132,48 @@ func blue_spawn(marker, index):
 	blcar.z_index = 3 + index
 
 
-func bus_spawn(marker, index) -> void:
+func bus_spawn(marker, index, direction) -> void:
 	var marker_pos = marker.position
 	var bus = onibus.instantiate()
 	bus.position = marker_pos
+	bus.direction = direction
 	$cars.add_child(bus)
 	bus.z_index = 1 + index
 
 
-func brown_spawn(marker, index):
+func brown_spawn(marker, index, direction):
 	var marker_pos = marker.position
 	var brcar = brown_car.instantiate()
 	brcar.position = marker_pos
+	brcar.direction = direction
 	$cars.add_child(brcar)
 	brcar.z_index = 2 + index
 
-func bug_spawn(marker, speed, index) -> void:
+func bug_spawn(marker, speed, index, direction) -> void:
 	var marker_pos = marker.position
 	var glcar = glitched_car.instantiate()
 	glcar.position = marker_pos
-	$cars.add_child(glcar)
+	glcar.direction = direction
 	glcar.speed = speed
+	$cars.add_child(glcar)
 	glcar.z_index = 1 + index
 #CU
 #kkkkk on mirella entered
 
-func orange_spawn(marker, speed, index) -> void:
+func orange_spawn(marker, speed, index, direction) -> void:
 	var marker_pos = marker.position
 	var ocar = orange_car.instantiate()
 	ocar.position = marker_pos
-	$orange_cars.add_child(ocar)
+	ocar.direction = direction
 	ocar.speed = speed
+	$orange_cars.add_child(ocar)
 	ocar.z_index = 4 + index
 	
-func blackwhite_spawn(marker, index) -> void:
+func blackwhite_spawn(marker, index, direction) -> void:
 	var marker_pos = marker.position
 	var blwh = blackwhite.instantiate()
 	blwh.position = marker_pos
+	blwh.direction = direction
 	$cars.add_child(blwh)
 	blwh.z_index = 1 + index
 
@@ -181,3 +192,12 @@ func _on_abomination_correr() -> void:
 			marker.white = true
 		is_black = false
 		is_white = true
+
+
+func _on_abomination_shoot(bullet_pos: Variant, bullet_dir: Variant, bullet_rot: Variant) -> void:
+	var bala = tiro.instantiate()
+	bala.global_position = bullet_pos
+	$projectiles.add_child(bala)
+	bala.direction = bullet_dir
+	bala.rotation = bullet_rot
+	bala.z_index = 69

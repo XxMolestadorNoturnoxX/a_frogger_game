@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cpgb8hn7qm6ec"]
+
+[ext_resource type="Script" uid="uid://bl3iauvblh4gj" path="res://arma.gd" id="1_uya3a"]
+[ext_resource type="Texture2D" uid="uid://bj37de8t8m7gf" path="res://frogger/graphics/arma-removebg-preview.png" id="1_vp40w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uya3a"]
+size = Vector2(251, 250)
+
+[node name="arma" type="Area2D" unique_id=1499195678]
+collision_layer = 128
+collision_mask = 2
+script = ExtResource("1_uya3a")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=292731519]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_vp40w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1590086010]
+position = Vector2(-4.5, -6)
+shape = SubResource("RectangleShape2D_uya3a")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
