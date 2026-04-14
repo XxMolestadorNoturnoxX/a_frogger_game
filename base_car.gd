@@ -22,7 +22,6 @@ func _ready() -> void:
 		speed = 333
 	if direction == "left":
 		self.scale.x = -1
-	await get_tree().create_timer(1).timeout
 
 func _physics_process(delta: float) -> void:
 	if color == "purple":

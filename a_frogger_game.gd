@@ -12,10 +12,12 @@ var glitched_car = preload("res://glitched.tscn")
 var orange_car = preload("res://orange_car.tscn")
 var blackwhite = preload("res://blackwhite.tscn")
 var tiro = preload("res://bala.tscn")
+var thiago = preload("res://thiago.tscn")
 var is_white: bool = false
 var is_black: bool = true
 var game = preload("res://gameover.tscn")
 var menu = preload("res://exercitos/menu.tscn")
+var game_over = preload("res://exercitos/dead.tscn")
 var dead = false
 var on_menu = false
 
@@ -55,6 +57,10 @@ func _process(_delta: float) -> void:
 		get_tree().paused = true
 		var manu = menu.instantiate()
 		$ABOMINATION/test.add_child(manu)
+	if Global.health <= 0:
+		get_tree().paused = true
+		var its_over = game_over.instantiate()
+		$ABOMINATION/test.add_child(its_over)
 #aSS (CU)
 	
 func gameover():
@@ -201,3 +207,17 @@ func _on_abomination_shoot(bullet_pos: Variant, bullet_dir: Variant, bullet_rot:
 	bala.direction = bullet_dir
 	bala.rotation = bullet_rot
 	bala.z_index = 69
+
+
+func _on_save_31_body_entered(_body: Node2D) -> void:
+	$ABOMINATION.russo()
+	$saves/save31.queue_free()
+
+func chase():
+	$ABOMINATION.chase()
+	$Russo.ackorda()
+	var thsa: StaticBody2D = thiago.instantiate()
+	thsa.global_position = Vector2(914,-149734.0)
+	thsa.rotation_degrees = 90
+	thsa.scale = Vector2(0.4,1.2)
+	$thaigos.add_child(thsa)

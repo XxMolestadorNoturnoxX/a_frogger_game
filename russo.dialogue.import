@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://cudg8q7i47f22"
+path="res://.godot/imported/russo.dialogue-4e5c6a9efbf19f0e3f9626cb69f96268.tres"
+
+[deps]
+
+source_file="res://russo.dialogue"
+dest_files=["res://.godot/imported/russo.dialogue-4e5c6a9efbf19f0e3f9626cb69f96268.tres"]
+
+[params]
+
+defaults=true

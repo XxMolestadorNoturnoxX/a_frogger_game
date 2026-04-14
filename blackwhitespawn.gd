@@ -15,7 +15,7 @@ var t: float = 0.0
 @export var index: int
 @export var direction: String
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if changed_to_white:
 		time = time / 3
 		t = t / 3

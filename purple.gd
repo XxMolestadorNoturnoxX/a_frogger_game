@@ -3,7 +3,7 @@ extends Node2D
 var time : float = 0.0
 var duration = 2
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if Global.velocidade == 408:
 		duration = 1.9
 	if Global.velocidade == 447:

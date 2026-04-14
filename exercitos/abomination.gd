@@ -26,11 +26,11 @@ func _physics_process(_delta: float) -> void:
 	velocity = speed * direction * stop
 	move_and_slide()
 	if Input.is_action_pressed("sprint"):
-		speed = 569
+		speed = 369 + Global.health * 2
 		correr.emit()
 		Global.player_sprinting = true
 	else:
-		speed = 369
+		speed = 269 + Global.health
 		andar.emit()
 		Global.player_sprinting = false
 	Global.current_pos = global_position
@@ -52,3 +52,16 @@ func _on_cudown_timeout() -> void:
 func _on_arma_collect() -> void:
 	arma_in = true
 	$eixo.show()
+
+func russo():
+	cudown = true
+	stop = 0
+	var tween = get_tree().create_tween()
+	await tween.tween_property($Camera, "offset", Vector2(0,-369), 2).finished
+	DialogueManager.show_dialogue_balloon_scene("res://balloon.tscn", load("res://russo.dialogue"), "start")
+	
+func chase():
+	cudown = false
+	stop = 1
+	var tween = get_tree().create_tween()
+	tween.tween_property($Camera, "offset", Vector2(0,0), 0.5)

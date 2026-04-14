@@ -1,0 +1,5 @@
+~ start
+Russo: [speed=0.2] Do you know why the frog crossed the road?
+Russo: [speed=0.2] To get brutally molested.
+do chase()
+=> END

@@ -9,12 +9,15 @@ var current_pos: Vector2
 var fps: int = 60:
 	set(value):
 		Engine.max_fps = value
-		print(fps)
 var index: int = 4
 var volume: int = 44
 var duration: float = 0.03
 var time: float = 0.0
 var show_collisions: bool = false
+var health: int = 100:
+	set(value):
+		health = value
+		print(health)
 
 
 func _process(delta: float) -> void:

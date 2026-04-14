@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://dxuw6qgtppm4h"]
+
+[ext_resource type="Theme" uid="uid://c0liehhx4r4l1" path="res://exercitos/theme.tres" id="1_p7xjl"]
+[ext_resource type="Script" uid="uid://b8yjqc8odg7u3" path="res://exercitos/dead.gd" id="1_tat2s"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tat2s"]
+font_size = 69
+font_color = Color(1, 0, 0, 1)
+outline_size = 12
+outline_color = Color(0, 0, 1, 1)
+
+[node name="dead" type="Control" unique_id=1510997949]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tat2s")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1159678780]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=192340855]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_p7xjl")
+
+[node name="Control" type="Control" parent="PanelContainer" unique_id=1285426359]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=330060472]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="PanelContainer/VBoxContainer" unique_id=951158108]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer" unique_id=1231355922]
+layout_mode = 2
+size_flags_vertical = 2
+text = "thank you for playing."
+label_settings = SubResource("LabelSettings_tat2s")
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1504972943]
+custom_minimum_size = Vector2(0, 140)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 48
+text = "   you're welcome.   "
+
+[node name="Control2" type="Control" parent="PanelContainer/VBoxContainer" unique_id=746272631]
+layout_mode = 2
+size_flags_vertical = 3
+
+[connection signal="button_up" from="PanelContainer/VBoxContainer/Button" to="." method="_on_button_button_up"]

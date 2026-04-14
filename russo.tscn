@@ -1,0 +1,345 @@
+[gd_scene format=3 uid="uid://b7nhoixixlbs3"]
+
+[ext_resource type="Script" uid="uid://b4wm310luwiab" path="res://russo.gd" id="1_cx3hj"]
+[ext_resource type="Texture2D" uid="uid://wen7nky177da" path="res://nemfudendo-removebg-preview.png" id="1_ldr3t"]
+[ext_resource type="Texture2D" uid="uid://b078ntsfc4a6m" path="res://bloody-knife-PNG-free.png" id="2_cx3hj"]
+
+[sub_resource type="SkeletonModification2DTwoBoneIK" id="SkeletonModification2DTwoBoneIK_2yfrn"]
+target_nodepath = NodePath("../Marker2D")
+flip_bend_direction = true
+joint_one_bone_idx = 1
+joint_one_bone2d_node = NodePath("Russ/ombro?")
+joint_two_bone_idx = 2
+joint_two_bone2d_node = NodePath("Russ/ombro?/faca")
+
+[sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_ajq6f"]
+resource_local_to_scene = true
+enabled = true
+modification_count = 1
+modifications/0 = SubResource("SkeletonModification2DTwoBoneIK_2yfrn")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2yfrn"]
+size = Vector2(89.81993, 337.7403)
+
+[sub_resource type="Animation" id="Animation_cx3hj"]
+length = 0.001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Marker2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(178, -21)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Skeleton2D/Russ/ombro?:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.69, 0.69)]
+}
+
+[sub_resource type="Animation" id="Animation_ldr3t"]
+resource_name = "facada"
+length = 2.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Marker2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8, 2.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(121.739136, -28.985506), Vector2(227.53622, 62.31884), Vector2(121.739136, -28.985506)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Skeleton2D/Russ/ombro?:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_5wky3"]
+resource_name = "flip"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.69, 0.69), Vector2(0, 0.69)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.25),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["flip"],
+"method": &"flip"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_4hyc6"]
+resource_name = "flip_2"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -0.69), Vector2(0.69, -0.69)]
+}
+
+[sub_resource type="Animation" id="Animation_6uaj8"]
+resource_name = "pilf"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.69, -0.69), Vector2(0, -0.69)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.25),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["plif"],
+"method": &"flip"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_llouo"]
+resource_name = "pilf_2"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0.69), Vector2(0.69, 0.69)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2yfrn"]
+_data = {
+&"RESET": SubResource("Animation_cx3hj"),
+&"facada": SubResource("Animation_ldr3t"),
+&"flip": SubResource("Animation_5wky3"),
+&"flip_2": SubResource("Animation_4hyc6"),
+&"pilf": SubResource("Animation_6uaj8"),
+&"pilf_2": SubResource("Animation_llouo")
+}
+
+[sub_resource type="Animation" id="Animation_v2ujp"]
+resource_name = "facada"
+length = 2.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Marker2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8, 2.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(121.739136, -28.985506), Vector2(227.53622, 62.31884), Vector2(121.739136, -28.985506)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yobrd"]
+_data = {
+&"facada": SubResource("Animation_v2ujp")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ajq6f"]
+radius = 1810.7157
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4p0nm"]
+radius = 1207.3933
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t3ra8"]
+radius = 731.88983
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cx3hj"]
+radius = 387.6507
+
+[node name="Russo" type="CharacterBody2D" unique_id=1620210693]
+scale = Vector2(0.69, 0.69)
+collision_layer = 2048
+collision_mask = 2
+script = ExtResource("1_cx3hj")
+
+[node name="Skeleton2D" type="Skeleton2D" parent="." unique_id=842918604]
+modification_stack = SubResource("SkeletonModificationStack2D_ajq6f")
+
+[node name="Russ" type="Bone2D" parent="Skeleton2D" unique_id=709441832]
+scale = Vector2(0.9999994, 0.9999994)
+rest = Transform2D(0.9999994, 0, 0, 0.9999994, 0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Skeleton2D/Russ" unique_id=32210751]
+texture = ExtResource("1_ldr3t")
+
+[node name="ombro?" type="Bone2D" parent="Skeleton2D/Russ" unique_id=909423353]
+position = Vector2(59.4203, 31.884066)
+scale = Vector2(0.9998827, 0.9998827)
+rest = Transform2D(0.96397007, -0.26557, 0.26557, 0.96397007, 59.4203, 31.884066)
+metadata/_local_pose_override_enabled_ = true
+
+[node name="faca" type="Bone2D" parent="Skeleton2D/Russ/ombro?" unique_id=2067707747]
+position = Vector2(20.292261, 57.977882)
+rotation = 0.12915434
+scale = Vector2(0.9998856, 0.9998856)
+rest = Transform2D(0.96860194, 0.24815626, -0.24815626, 0.96860194, 20.292261, 57.977882)
+auto_calculate_length_and_angle = false
+length = 133.0
+bone_angle = -49.999992
+metadata/_local_pose_override_enabled_ = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="Skeleton2D/Russ/ombro?/faca" unique_id=2012151115]
+position = Vector2(121.6203, -75.95678)
+rotation = 3.3161256
+scale = Vector2(0.039999995, -0.039999995)
+texture = ExtResource("2_cx3hj")
+
+[node name="dano" type="Area2D" parent="Skeleton2D/Russ/ombro?/faca" unique_id=712515331]
+position = Vector2(162.06052, -44.20238)
+rotation = 2.9234264
+collision_layer = 2048
+collision_mask = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Skeleton2D/Russ/ombro?/faca/dano" unique_id=2126267882]
+position = Vector2(36.89064, 44.301548)
+rotation = 2.3561945
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_2yfrn")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=388554936]
+position = Vector2(178, -21)
+
+[node name="flipping" type="AnimationPlayer" parent="." unique_id=1825446425]
+libraries/ = SubResource("AnimationLibrary_2yfrn")
+
+[node name="knifing" type="AnimationPlayer" parent="." unique_id=1530602950]
+libraries/ = SubResource("AnimationLibrary_yobrd")
+
+[node name="facada" type="Area2D" parent="." unique_id=739342871]
+visible = false
+collision_layer = 2048
+collision_mask = 2
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="facada" unique_id=287695688]
+shape = SubResource("CircleShape2D_ajq6f")
+
+[node name="Fast" type="Area2D" parent="." unique_id=650083644]
+visible = false
+collision_layer = 2048
+collision_mask = 2
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fast" unique_id=438844834]
+shape = SubResource("CircleShape2D_4p0nm")
+
+[node name="VeryFast" type="Area2D" parent="." unique_id=1963145800]
+visible = false
+collision_layer = 2048
+collision_mask = 2
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VeryFast" unique_id=1271576307]
+shape = SubResource("CircleShape2D_t3ra8")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=497945198]
+path_max_distance = 69.0
+
+[node name="Node" type="Node" parent="." unique_id=1687787707]
+
+[node name="caminho" type="Timer" parent="Node" unique_id=1896259279]
+wait_time = 0.1
+autostart = true
+
+[node name="VeryVeryVeryFest" type="Area2D" parent="." unique_id=2033266738]
+visible = false
+collision_layer = 2048
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VeryVeryVeryFest" unique_id=1696036963]
+shape = SubResource("CircleShape2D_cx3hj")
+
+[connection signal="body_entered" from="Skeleton2D/Russ/ombro?/faca/dano" to="." method="_on_dano_body_entered"]
+[connection signal="body_entered" from="facada" to="." method="_on_facada_body_entered"]
+[connection signal="body_exited" from="facada" to="." method="_on_facada_body_exited"]
+[connection signal="body_entered" from="Fast" to="." method="_on_fast_body_entered"]
+[connection signal="body_exited" from="Fast" to="." method="_on_fast_body_exited"]
+[connection signal="body_entered" from="VeryFast" to="." method="_on_very_fast_body_entered"]
+[connection signal="body_exited" from="VeryFast" to="." method="_on_very_fast_body_exited"]
+[connection signal="timeout" from="Node/caminho" to="." method="_on_caminho_timeout"]
+[connection signal="body_entered" from="VeryVeryVeryFest" to="." method="_on_very_very_very_fest_body_entered"]
+[connection signal="body_exited" from="VeryVeryVeryFest" to="." method="_on_very_very_very_fest_body_exited"]

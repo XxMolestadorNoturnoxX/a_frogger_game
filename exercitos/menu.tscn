@@ -3,69 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://djoalx7lt7cr5" path="res://exercitos/exercito_3e_4.tscn" id="1_7l6e5"]
 [ext_resource type="Script" uid="uid://byk5a3y41ii0n" path="res://exercitos/menu.gd" id="1_bu2jj"]
 [ext_resource type="LabelSettings" uid="uid://ce0b3li4303vw" path="res://testo.tres" id="2_lgggf"]
+[ext_resource type="Theme" uid="uid://c0liehhx4r4l1" path="res://exercitos/theme.tres" id="2_t2s0i"]
 [ext_resource type="Texture2D" uid="uid://buk7dmem0afrq" path="res://personagens/medo.png" id="3_lgggf"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iy247"]
-bg_color = Color(0, 0, 1, 1)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 12
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-corner_radius_bottom_left = 12
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lrkqp"]
-bg_color = Color(0, 0, 0.57254905, 1)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 12
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-corner_radius_bottom_left = 12
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4rvjp"]
-bg_color = Color(0.101960786, 0, 0.34509805, 1)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 12
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-corner_radius_bottom_left = 12
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bu2jj"]
-bg_color = Color(1.8049032e-08, 0.10027798, 0.12168635, 1)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lgggf"]
-bg_color = Color(0, 0.17254902, 0.20392157, 1)
-
-[sub_resource type="Theme" id="Theme_lgggf"]
-Button/colors/font_color = Color(0.72156864, 0, 0, 1)
-Button/colors/font_hover_color = Color(0.79607844, 0, 0, 1)
-Button/colors/font_pressed_color = Color(1, 0, 0, 1)
-Button/font_sizes/font_size = 32
-Button/styles/hover = SubResource("StyleBoxFlat_iy247")
-Button/styles/normal = SubResource("StyleBoxFlat_lrkqp")
-Button/styles/pressed = SubResource("StyleBoxFlat_4rvjp")
-Panel/styles/panel = SubResource("StyleBoxFlat_bu2jj")
-PanelContainer/styles/panel = SubResource("StyleBoxFlat_lgggf")
 
 [node name="Menu" type="Control" unique_id=1996475730]
 layout_mode = 3
@@ -83,7 +22,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_lgggf")
+theme = ExtResource("2_t2s0i")
 
 [node name="exercito_3e4" parent="PanelContainer" unique_id=1693671725 instance=ExtResource("1_7l6e5")]
 layout_mode = 2

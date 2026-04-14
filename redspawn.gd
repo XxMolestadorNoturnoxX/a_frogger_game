@@ -6,7 +6,7 @@ signal red_spawn
 @export var direction: String
 var time: float = 0.0
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	time += delta
 	if time >= duration:
 		red_spawn.emit(self, index, direction)

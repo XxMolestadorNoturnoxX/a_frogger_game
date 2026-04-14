@@ -37,6 +37,5 @@ func _on_resume_button_up() -> void:
 func _on_check_button_toggled(toggled_on: bool) -> void:
 	if toggled_on == true:
 		Global.show_collisions = true
-		
 	else:
 		Global.show_collisions = false
