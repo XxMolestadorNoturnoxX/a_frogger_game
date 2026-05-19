@@ -1,19 +1,23 @@
 extends Marker2D
 
 signal blwh_spawn
-var white = false:
+var white := false:
 	set(value):
 			if value == true:
 				changed_to_white = true
 			if value == false:
 				changed_to_black = true
 
-var changed_to_white: bool = false
-var changed_to_black: bool = false
+var changed_to_white := false
+var changed_to_black := false
 @export var time: float
-var t: float = 0.0
+var t := 0.0
 @export var index: int
 @export var direction: String
+var time_reserva: float
+
+func _ready() -> void:
+	time_reserva = time
 
 func _physics_process(delta: float) -> void:
 	if changed_to_white:
@@ -22,7 +26,7 @@ func _physics_process(delta: float) -> void:
 		changed_to_white = false
 	
 	if changed_to_black:
-		time = time * 3
+		time = time_reserva
 		t = t * 3
 		changed_to_black = false
 		

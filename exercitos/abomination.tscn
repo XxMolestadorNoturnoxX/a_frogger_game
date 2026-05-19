@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bk5i7akd0rspk" path="res://personagens/mikael.jpeg" id="4_h3gfq"]
 [ext_resource type="Texture2D" uid="uid://jgyvxg68xayu" path="res://personagens/guilherme.jpeg" id="6_dkhp1"]
 [ext_resource type="Texture2D" uid="uid://d3j0arfe33thu" path="res://personagens/floricio.jpeg" id="6_j257o"]
+[ext_resource type="Texture2D" uid="uid://dcd5xstdn4fxk" path="res://personagens/pixil-frame-0 (35).png" id="8_j257o"]
 [ext_resource type="Texture2D" uid="uid://bj37de8t8m7gf" path="res://frogger/graphics/arma-removebg-preview.png" id="8_lqoik"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ic0i4"]
@@ -60,12 +61,11 @@ position = Vector2(1.725, 290.19434)
 scale = Vector2(0.0345, 0.04731429)
 texture = ExtResource("6_dkhp1")
 
-[node name="Camera" type="Camera2D" parent="." unique_id=968622509]
-offset = Vector2(0, -169)
-zoom = Vector2(0.69, 0.69)
-process_callback = 0
-position_smoothing_enabled = true
-position_smoothing_speed = 25.0
+[node name="sangue" type="Sprite2D" parent="." unique_id=902223885]
+texture_repeat = 1
+position = Vector2(0, 52.000004)
+scale = Vector2(1.69, 1.69)
+texture = ExtResource("8_j257o")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1240712702]
 shape = SubResource("CircleShape2D_ic0i4")
@@ -90,5 +90,13 @@ one_shot = true
 visible = false
 modulate = Color(0.99607843, 0.21960784, 0.40392157, 0.45882353)
 mesh = SubResource("SphereMesh_lqoik")
+
+[node name="Camera" type="Camera2D" parent="." unique_id=968622509]
+position = Vector2(0, -3.9999962)
+offset = Vector2(0, -169)
+zoom = Vector2(0.75, 0.75)
+process_callback = 0
+position_smoothing_enabled = true
+position_smoothing_speed = 25.0
 
 [connection signal="timeout" from="cudown" to="." method="_on_cudown_timeout"]

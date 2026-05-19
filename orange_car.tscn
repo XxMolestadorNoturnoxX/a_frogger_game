@@ -44,7 +44,7 @@ shape = SubResource("CircleShape2D_gnurk")
 
 [node name="colisao" type="MeshInstance2D" parent="." unique_id=1565605265 groups=["hitbox"]]
 visible = false
-modulate = Color(0.7882353, 0.4509804, 0, 0.41960785)
+modulate = Color(0, 0.6, 0.7019608, 0.41960785)
 position = Vector2(0, 25.5)
 rotation = 1.5707964
 mesh = SubResource("CapsuleMesh_qajs3")

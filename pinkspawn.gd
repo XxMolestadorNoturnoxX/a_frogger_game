@@ -1,7 +1,7 @@
 extends Node2D
 
 var duration = 0.0225 #1,69 / spawns 
-var time: float = 0.0
+var time := 0.0
 
 func _process(delta: float) -> void:
 	time += delta

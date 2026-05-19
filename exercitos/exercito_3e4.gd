@@ -1,16 +1,16 @@
 extends Control
 
-var numero: Array = [0,1,2,3,4,5,6,7,8,9]
-var cores: Array = ["ff0000", "00ff00", "0000ff", "ffff00", "ff00ff", "00ffff", "00ffbb", "fe3867", "696969", "6f3400"]
-var tamanho: Vector2 = Vector2(90,160)
-var indo_direita: bool = true
-var indo_esquerda: bool = false
-var subindo: bool = false
-var descendo: bool = true
-var limite_direita = 819
-var limite_esquerda = 333
-var limite_baixo = 548
-var limite_cima = 384
+var numero := [0,1,2,3,4,5,6,7,8,9]
+var cores := ["ff0000", "00ff00", "0000ff", "ffff00", "ff00ff", "00ffff", "00ffbb", "fe3867", "696969", "6f3400"]
+var tamanho := Vector2(90,160)
+var indo_direita := true
+var indo_esquerda := false
+var subindo := false
+var descendo := true
+const limite_direita := 819
+const limite_esquerda := 333
+const limite_baixo := 548
+const limite_cima := 384
 
 func _process(_delta: float) -> void:
 	if indo_direita && $nuvem.position.x < limite_direita:

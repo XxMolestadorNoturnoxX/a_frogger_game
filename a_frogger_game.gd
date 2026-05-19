@@ -1,31 +1,52 @@
 extends Node2D
 
-var red_car = preload("res://red_car.tscn")
-var green_car = preload("res://green_car.tscn")
-var yellow_car = preload("res://yellow_car.tscn")
-var purple_car = preload("res://purple_car.tscn")
-var pink_car = preload("res://pink_car.tscn")
-var blue_car = preload("res://blue_car.tscn")
-var brown_car = preload("res://brown_car.tscn")
-var onibus = preload("res://onibus.tscn")
-var glitched_car = preload("res://glitched.tscn")
-var orange_car = preload("res://orange_car.tscn")
-var blackwhite = preload("res://blackwhite.tscn")
-var tiro = preload("res://bala.tscn")
-var thiago = preload("res://thiago.tscn")
-var is_white: bool = false
-var is_black: bool = true
-var game = preload("res://gameover.tscn")
-var menu = preload("res://exercitos/menu.tscn")
-var game_over = preload("res://exercitos/dead.tscn")
-var dead = false
-var on_menu = false
+var red_car := preload("res://red_car.tscn")
+var green_car := preload("res://green_car.tscn")
+var yellow_car := preload("res://yellow_car.tscn")
+var purple_car := preload("res://purple_car.tscn")
+var pink_car := preload("res://pink_car.tscn")
+var blue_car := preload("res://blue_car.tscn")
+var brown_car := preload("res://brown_car.tscn")
+var onibus := preload("res://onibus.tscn")
+var glitched_car := preload("res://glitched.tscn")
+var orange_car := preload("res://orange_car.tscn")
+var blackwhite := preload("res://blackwhite.tscn")
+var tiro := preload("res://bala.tscn")
+var thiago := preload("res://thiago.tscn")
+var is_white := false
+var is_black := true
+var game := preload("res://gameover.tscn")
+var menu := preload("res://exercitos/menu.tscn")
+var game_over := preload("res://dead.tscn")
+var dead := false
+var on_menu := true
 
 func _ready() -> void:
-	for spawn in get_tree().get_nodes_in_group("area1"):
-		spawn.process_mode = Node.PROCESS_MODE_INHERIT
-	for spawn in get_tree().get_nodes_in_group("area2"):
-		spawn.process_mode = Node.PROCESS_MODE_INHERIT
+	var dict: Dictionary = SaveManager.load_game()
+	print(dict["positionx"])
+	var x = dict["positionx"]
+	var y = dict["positiony"]
+	Global.current_pos = $ABOMINATION.global_position
+	Global.position = Vector2(x,y)
+	Global.areas = dict["areas"]
+	Global.gun = dict["gun"]
+	Global.health = dict["health"]
+	Global.russo = dict["has_russo"]
+	if $ABOMINATION.global_position == Vector2.ZERO:
+		$ABOMINATION.global_position = Global.position
+	
+	for area in Global.areas:
+		for spawn in get_tree().get_nodes_in_group(area):
+			spawn.process_mode = Node.PROCESS_MODE_INHERIT
+	
+	if Global.gun:
+		$ABOMINATION/eixo.show()
+		$arma.queue_free()
+	
+	if Global.russo:
+		Global.health = 100
+		chase()
+	
 	for blue in $spawns/blue.get_children():
 		blue.blue_spawn.connect(blue_spawn)
 	for brown in $spawns/brown.get_children():
@@ -64,6 +85,10 @@ func _process(_delta: float) -> void:
 #aSS (CU)
 	
 func gameover():
+	if Global.russo:
+		get_tree().paused = true
+		var its_over = game_over.instantiate()
+		$ABOMINATION/test.add_child(its_over)
 	if dead == false and on_menu == false:
 		dead = true
 		$ABOMINATION.hide()
@@ -81,36 +106,36 @@ func restart():
 		if ocar.following == true:
 			ocar.queue_free()
 
-func red_spawn(marker, index, direction) -> void:
-	var marker_pos = marker.position
-	var rcar = red_car.instantiate()
+func red_spawn(marker: Marker2D, index: int, direction: String) -> void:
+	var marker_pos := marker.position
+	var rcar := red_car.instantiate() as Area2D
 	rcar.position = marker_pos
 	rcar.direction = direction
 	$cars.add_child(rcar)
 	rcar.z_index = 1 + index
 
 
-func green_spawn(marker, index, direction) -> void:
-	var marker_pos = marker.position
-	var grcar = green_car.instantiate()
+func green_spawn(marker: Marker2D, index: int, direction: String) -> void:
+	var marker_pos := marker.position
+	var grcar := green_car.instantiate() as Area2D
 	grcar.position = marker_pos
 	grcar.direction = direction
 	$cars.add_child(grcar)
 	grcar.z_index = 1 + index
 
 
-func yellow_spawn(marker, index, direction) -> void:
-	var marker_pos = marker.position
-	var ycar = yellow_car.instantiate()
+func yellow_spawn(marker: Marker2D, index: int, direction: String) -> void:
+	var marker_pos := marker.position
+	var ycar := yellow_car.instantiate() as Area2D
 	ycar.position = marker_pos
 	ycar.direction = direction
 	$cars.add_child(ycar)
 	ycar.z_index = 1 + index
 
 
-func purple_spawn(marker, index, direction) -> void:
-	var marker_pos = marker.position
-	var pucar = purple_car.instantiate()
+func purple_spawn(marker: Marker2D, index: int, direction: String) -> void:
+	var marker_pos := marker.position
+	var pucar := purple_car.instantiate() as Area2D
 	pucar.position = marker_pos
 	pucar.direction = direction
 	$cars.add_child(pucar)
@@ -121,43 +146,43 @@ func purple_spawn(marker, index, direction) -> void:
 #achar no seu pc depois, eu decidi vandalizar seu código do mesmo jeito que eu fiz da outra CCCICUCOIUCOIUOCIUOICUUCIUCCIOCUIOCUICCadoraodoaroadoroaord
 #fez, pela referência. CUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU
 
-func pink_spawn(marker, index, direction) -> void:
-	var marker_pos = marker.position
-	var picar = pink_car.instantiate()
+func pink_spawn(marker: Marker2D, index: int, direction: String) -> void:
+	var marker_pos := marker.position
+	var picar := pink_car.instantiate() as Area2D
 	picar.position = marker_pos
 	picar.direction = direction
 	$cars.add_child(picar)
 	picar.z_index = 1 + index
 
 
-func blue_spawn(marker, index):
-	var marker_pos = marker.position
-	var blcar = blue_car.instantiate()
+func blue_spawn(marker: Marker2D, index: int):
+	var marker_pos := marker.position
+	var blcar := blue_car.instantiate() as Area2D
 	blcar.position = marker_pos
 	$cars.add_child(blcar)
 	blcar.z_index = 3 + index
 
 
-func bus_spawn(marker, index, direction) -> void:
-	var marker_pos = marker.position
-	var bus = onibus.instantiate()
+func bus_spawn(marker: Marker2D, index: int, direction: String) -> void:
+	var marker_pos := marker.position
+	var bus := onibus.instantiate() as Area2D
 	bus.position = marker_pos
 	bus.direction = direction
 	$cars.add_child(bus)
 	bus.z_index = 1 + index
 
 
-func brown_spawn(marker, index, direction):
-	var marker_pos = marker.position
-	var brcar = brown_car.instantiate()
+func brown_spawn(marker: Marker2D, index: int, direction: String):
+	var marker_pos := marker.position
+	var brcar := brown_car.instantiate() as Area2D
 	brcar.position = marker_pos
 	brcar.direction = direction
 	$cars.add_child(brcar)
 	brcar.z_index = 2 + index
 
-func bug_spawn(marker, speed, index, direction) -> void:
-	var marker_pos = marker.position
-	var glcar = glitched_car.instantiate()
+func bug_spawn(marker: Marker2D, speed: int,  index: int, direction: String) -> void:
+	var marker_pos := marker.position
+	var glcar := glitched_car.instantiate() as Area2D
 	glcar.position = marker_pos
 	glcar.direction = direction
 	glcar.speed = speed
@@ -166,18 +191,18 @@ func bug_spawn(marker, speed, index, direction) -> void:
 #CU
 #kkkkk on mirella entered
 
-func orange_spawn(marker, speed, index, direction) -> void:
-	var marker_pos = marker.position
-	var ocar = orange_car.instantiate()
+func orange_spawn(marker: Marker2D, speed: int,  index: int, direction: String) -> void:
+	var marker_pos := marker.position
+	var ocar := orange_car.instantiate() as Area2D
 	ocar.position = marker_pos
 	ocar.direction = direction
 	ocar.speed = speed
 	$orange_cars.add_child(ocar)
 	ocar.z_index = 4 + index
 	
-func blackwhite_spawn(marker, index, direction) -> void:
-	var marker_pos = marker.position
-	var blwh = blackwhite.instantiate()
+func blackwhite_spawn(marker: Marker2D, index: int, direction: String) -> void:
+	var marker_pos := marker.position
+	var blwh := blackwhite.instantiate() as Area2D
 	blwh.position = marker_pos
 	blwh.direction = direction
 	$cars.add_child(blwh)
@@ -200,8 +225,8 @@ func _on_abomination_correr() -> void:
 		is_white = true
 
 
-func _on_abomination_shoot(bullet_pos: Variant, bullet_dir: Variant, bullet_rot: Variant) -> void:
-	var bala = tiro.instantiate()
+func _on_abomination_shoot(bullet_pos, bullet_dir, bullet_rot) -> void:
+	var bala := tiro.instantiate()
 	bala.global_position = bullet_pos
 	$projectiles.add_child(bala)
 	bala.direction = bullet_dir
@@ -211,13 +236,19 @@ func _on_abomination_shoot(bullet_pos: Variant, bullet_dir: Variant, bullet_rot:
 
 func _on_save_31_body_entered(_body: Node2D) -> void:
 	$ABOMINATION.russo()
-	$saves/save31.queue_free()
+	Global.russo = true
 
 func chase():
+	$ABOMINATION/test/health.show()
+	$saves/save31.queue_free()
 	$ABOMINATION.chase()
 	$Russo.ackorda()
 	var thsa: StaticBody2D = thiago.instantiate()
-	thsa.global_position = Vector2(914,-149734.0)
+	thsa.global_position = Vector2(914,Global.current_pos.y + 690)
 	thsa.rotation_degrees = 90
 	thsa.scale = Vector2(0.4,1.2)
 	$thaigos.add_child(thsa)
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_WM_CLOSE_REQUEST:
+		SaveManager.save_game({"positionx": Global.position.x, "positiony": Global.position.y, "areas": Global.areas, "gun": Global.gun, "health": Global.health, "has_russo": Global.russo})

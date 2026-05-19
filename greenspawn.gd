@@ -4,7 +4,7 @@ signal green_spawn
 @export var index: int
 @export var duration: float
 @export var direction: String
-var time: float = 0.0
+var time := 0.0
 
 func _physics_process(delta: float) -> void:
 	time += delta

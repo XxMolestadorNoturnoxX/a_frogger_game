@@ -14,7 +14,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 [application]
 
-config/name="O_TUTORIAL_2_INTEIRINHO"
+config/name="A Frogger Game"
 run/main_scene="uid://ds5cmc3mriafy"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
@@ -23,6 +23,7 @@ config/icon="res://icon.svg"
 
 Global="*uid://bgup8vhv3m12q"
 DialogueManager="*uid://c3rodes2l3gxb"
+SaveManager="*uid://2kh03xftgv6f"
 
 [dialogue_manager]
 

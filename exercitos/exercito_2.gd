@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var speed: Vector2 = Vector2(4,2.25)
+@export var speed := Vector2(4,2.25)
 
 func _process(_delta: float) -> void:
 	$fabicinho.position += Vector2(speed)

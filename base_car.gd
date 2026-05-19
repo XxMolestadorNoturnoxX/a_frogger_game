@@ -1,12 +1,12 @@
 extends Area2D
 
 @export var color: String
-@export var speed = 269
-var black = preload("res://frogger/graphics/cars/black.png")
-var white = preload("res://frogger/graphics/cars/white.png")
+@export var speed := 269
+var black := preload("res://frogger/graphics/cars/black.png")
+var white := preload("res://frogger/graphics/cars/white.png")
 var direction: String
-var showing: bool = false
-var showing_hitbox: bool = false
+var showing := false
+var showing_hitbox := false
 signal game_over
 #cu, cuzinho, cuzao
 func _ready() -> void:
@@ -21,12 +21,21 @@ func _ready() -> void:
 	if color == "blackwhite":
 		speed = 333
 	if direction == "left":
-		self.scale.x = -1
-
+		$Sprite2D.scale.x = -10
+		if color == "green":
+			$CollisionShape2D.position.x += 20
+			$colisao.position.x += 20
+		if color == "yellow":
+			$CollisionShape2D.position.x += 10
+			$colisao.position.x += 10
+		if color == "purple":
+			$CollisionShape2D.position.x -= 10
+			$colisao.position.x -= 10
+			
 func _physics_process(delta: float) -> void:
 	if color == "purple":
-		speed = Global.velocidade
-	if color == "blackwhite" and Global.player_sprinting == true:
+		speed = Global.velocidade_roxo
+	if color == "blackwhite" and Global.player_sprinting:
 		speed = 999
 		$Sprite2D.texture = white
 	if color == "blackwhite" and Global.player_sprinting == false:
@@ -37,6 +46,7 @@ func _physics_process(delta: float) -> void:
 		position += Vector2.RIGHT * speed * delta
 	if direction == "left" and color != "bug":
 		position += Vector2.LEFT * speed * delta
+		
 	if direction == "down":
 		position += Vector2.DOWN * speed * delta
 		
@@ -46,7 +56,7 @@ func _process(_delta: float) -> void:
 			position += Vector2.RIGHT * speed
 		if direction == "left":
 			position += Vector2.LEFT * speed
-	if showing_hitbox == false and Global.show_collisions:
+	if not showing_hitbox and Global.show_collisions == true:
 		$colisao.show()
 		showing_hitbox = true
 	if showing_hitbox and Global.show_collisions == false:

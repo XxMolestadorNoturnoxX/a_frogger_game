@@ -1,9 +1,13 @@
 extends Control
 
+var treme: Theme = preload("res://treme.tres")
+var can_reset := false
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	$PanelContainer/Control/VBoxContainer2/fps_picker.selected = Global.index
 	$PanelContainer/Control/VBoxContainer2/CheckButton.button_pressed = Global.show_collisions
+	%slider.value = Global.volume
+	$Control/MarginContainer/reset.theme_type_variation = "innactive"
 
 func _on_fps_picker_item_selected(index: int) -> void:
 	if index == 0:
@@ -39,3 +43,25 @@ func _on_check_button_toggled(toggled_on: bool) -> void:
 		Global.show_collisions = true
 	else:
 		Global.show_collisions = false
+
+
+func _on_slider_value_changed(value: int) -> void:
+	%volume_typer.value = value
+	Global.volume = value
+
+
+func _on_volume_typer_value_changed(value: int) -> void:
+	%slider.value = value
+	Global.volume = value
+
+
+func _on_reset_button_up() -> void:
+	if can_reset:
+		SaveManager.reset_save()
+	else:
+		$Control/MarginContainer/reset.theme_type_variation = "FlatButton"
+		can_reset = true
+
+
+func _on_volume_typer_mouse_exited() -> void:
+	%volume_typer.release_focus()

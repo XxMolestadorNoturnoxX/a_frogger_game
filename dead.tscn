@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://tgxc63cb8y3d"]
+
+[ext_resource type="Script" uid="uid://dsvvt7uexytn8" path="res://dead.gd" id="1_nihps"]
+[ext_resource type="Theme" uid="uid://c0liehhx4r4l1" path="res://exercitos/theme.tres" id="1_vrggy"]
+[ext_resource type="FontFile" uid="uid://hqpa84d2dqvp" path="res://frogger/fonts/Better VCR 9.0.1.ttf" id="2_nihps"]
+[ext_resource type="Theme" uid="uid://3aoa14yvmido" path="res://trema.tres" id="3_vrggy"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jblhf"]
+font = ExtResource("2_nihps")
+font_size = 50
+font_color = Color(1, 0, 0, 1)
+outline_size = 16
+outline_color = Color(0, 0, 1, 1)
+
+[node name="dead" type="Control" unique_id=652678696]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nihps")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1041317516]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_vrggy")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=709554411]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer" unique_id=811952131]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Thank you for playing."
+label_settings = SubResource("LabelSettings_jblhf")
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1822246392]
+custom_minimum_size = Vector2(100, 124)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme = ExtResource("3_vrggy")
+text = "You're welcome."
+
+[node name="Control" type="Control" parent="PanelContainer/VBoxContainer" unique_id=362291278]
+layout_mode = 2
+size_flags_vertical = 3
+
+[connection signal="button_up" from="PanelContainer/VBoxContainer/Button" to="." method="_on_button_button_up"]

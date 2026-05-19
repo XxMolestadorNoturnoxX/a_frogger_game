@@ -1,11 +1,6 @@
 extends Control
 
-signal restart
 
-func _on_ragequit_button_up() -> void:
+func _on_button_button_up() -> void:
 	SaveManager.save_game({"positionx": Global.position.x, "positiony": Global.position.y, "areas": Global.areas, "gun": Global.gun, "health": Global.health, "has_russo": Global.russo})
-
-
-func _on_restart_button_up() -> void:
-	restart.emit()
-	queue_free()
+	get_tree().quit()

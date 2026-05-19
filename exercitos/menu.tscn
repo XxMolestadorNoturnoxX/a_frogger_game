@@ -5,6 +5,29 @@
 [ext_resource type="LabelSettings" uid="uid://ce0b3li4303vw" path="res://testo.tres" id="2_lgggf"]
 [ext_resource type="Theme" uid="uid://c0liehhx4r4l1" path="res://exercitos/theme.tres" id="2_t2s0i"]
 [ext_resource type="Texture2D" uid="uid://buk7dmem0afrq" path="res://personagens/medo.png" id="3_lgggf"]
+[ext_resource type="Theme" uid="uid://3aoa14yvmido" path="res://trema.tres" id="6_iy247"]
+[ext_resource type="Theme" uid="uid://b126jwqhebipn" path="res://treme.tres" id="8_4rvjp"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_iy247"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iy247"]
+bg_color = Color(0, 0.17254902, 0.20392157, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1.6123802e-06, 0.34730968, 0.40277672, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="Theme" id="Theme_lrkqp"]
+HSlider/styles/grabber_area = null
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxLine_iy247")
+HSlider/styles/slider = null
+Label/colors/font_color = Color(0.46643066, 0.9092222, 0.9999998, 1)
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_iy247")
 
 [node name="Menu" type="Control" unique_id=1996475730]
 layout_mode = 3
@@ -68,20 +91,22 @@ offset_bottom = -0.23999023
 [node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/Control" unique_id=884377823]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.76
+anchor_left = 0.757
 anchor_top = 0.03
-anchor_right = 0.976
-anchor_bottom = 0.47
-offset_left = -3.7440796
-offset_bottom = 3.0
+anchor_right = 0.989
+anchor_bottom = 0.47500002
+offset_left = -0.28808594
+offset_right = -14.975952
+offset_bottom = -0.24002075
 metadata/_edit_use_anchors_ = true
 
 [node name="max_fps" type="Label" parent="PanelContainer/Control/VBoxContainer2" unique_id=194917402]
 layout_mode = 2
-text = "max Frames Per Seconds"
+text = "Max Frames Per Seconds"
 
 [node name="fps_picker" type="OptionButton" parent="PanelContainer/Control/VBoxContainer2" unique_id=2131029971]
 layout_mode = 2
+theme = ExtResource("6_iy247")
 selected = 4
 item_count = 6
 popup/item_0/text = "5 fps"
@@ -97,23 +122,95 @@ popup/item_4/id = 4
 popup/item_5/text = "120 fps"
 popup/item_5/id = 5
 
-[node name="margin2" type="Control" parent="PanelContainer/Control/VBoxContainer2" unique_id=1164051150]
+[node name="margin2" type="VBoxContainer" parent="PanelContainer/Control/VBoxContainer2" unique_id=319619323]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="volume" type="Label" parent="PanelContainer/Control/VBoxContainer2" unique_id=1346617077]
+[node name="Control" type="Control" parent="PanelContainer/Control/VBoxContainer2/margin2" unique_id=1333285348]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.4
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/Control/VBoxContainer2/margin2" unique_id=83573651]
+layout_mode = 2
+size_flags_vertical = 3
+theme = SubResource("Theme_lrkqp")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/Control/VBoxContainer2/margin2/PanelContainer" unique_id=2032779219]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/Control/VBoxContainer2/margin2/PanelContainer/MarginContainer" unique_id=80738655]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="volume" type="Label" parent="PanelContainer/Control/VBoxContainer2/margin2/PanelContainer/MarginContainer/HBoxContainer" unique_id=1346617077]
 layout_mode = 2
 text = "Music Volume:"
 
-[node name="slider" type="HSlider" parent="PanelContainer/Control/VBoxContainer2" unique_id=11321181]
+[node name="volume_typer" type="SpinBox" parent="PanelContainer/Control/VBoxContainer2/margin2/PanelContainer/MarginContainer/HBoxContainer" unique_id=870116271]
+unique_name_in_owner = true
 layout_mode = 2
 value = 44.0
+
+[node name="slider" type="HSlider" parent="PanelContainer/Control/VBoxContainer2/margin2/PanelContainer/MarginContainer" unique_id=11321181]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(225, 0)
+layout_mode = 2
+size_flags_vertical = 8
+value = 44.0
+rounded = true
 ticks_on_borders = true
+
+[node name="Control2" type="Control" parent="PanelContainer/Control/VBoxContainer2/margin2" unique_id=631521755]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.4
 
 [node name="CheckButton" type="CheckButton" parent="PanelContainer/Control/VBoxContainer2" unique_id=1923922870]
 layout_mode = 2
+theme = ExtResource("6_iy247")
 text = "show hitboxes"
+
+[node name="Control" type="Control" parent="." unique_id=70143242]
+layout_mode = 1
+anchor_left = 0.73
+anchor_top = 0.77900004
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.039978027
+offset_top = 0.2079773
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=1688695117]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 45
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 30
+
+[node name="reset" type="Button" parent="Control/MarginContainer" unique_id=1647013954]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme = ExtResource("8_4rvjp")
+theme_type_variation = &"FlatButton"
+text = "Reset Save"
 
 [connection signal="button_up" from="PanelContainer/VBoxContainer/resume" to="." method="_on_resume_button_up"]
 [connection signal="item_selected" from="PanelContainer/Control/VBoxContainer2/fps_picker" to="." method="_on_fps_picker_item_selected"]
+[connection signal="mouse_exited" from="PanelContainer/Control/VBoxContainer2/margin2/PanelContainer/MarginContainer/HBoxContainer/volume_typer" to="." method="_on_volume_typer_mouse_exited"]
+[connection signal="value_changed" from="PanelContainer/Control/VBoxContainer2/margin2/PanelContainer/MarginContainer/HBoxContainer/volume_typer" to="." method="_on_volume_typer_value_changed"]
+[connection signal="value_changed" from="PanelContainer/Control/VBoxContainer2/margin2/PanelContainer/MarginContainer/slider" to="." method="_on_slider_value_changed"]
 [connection signal="toggled" from="PanelContainer/Control/VBoxContainer2/CheckButton" to="." method="_on_check_button_toggled"]
+[connection signal="button_up" from="Control/MarginContainer/reset" to="." method="_on_reset_button_up"]
